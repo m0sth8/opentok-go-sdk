@@ -2,6 +2,7 @@ package opentok
 
 import (
 	"log"
+	"net/http"
 	"testing"
 
 	jwt "github.com/dgrijalva/jwt-go"
@@ -16,7 +17,7 @@ const (
 var ot = New(apiKey, apiSecret)
 
 func TestNew(t *testing.T) {
-	expect := &OpenTok{apiKey, apiSecret, defaultAPIHost}
+	expect := &OpenTok{apiKey, apiSecret, defaultAPIHost, http.DefaultClient}
 
 	actual := New(apiKey, apiSecret)
 
